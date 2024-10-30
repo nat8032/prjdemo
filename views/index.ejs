@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+  <meta content='width=device-width,initial-scale=1.0,user-scalable=yes,minimum-scale=1.0,maximum-scale=3.0'
+    id='viewport' name='viewport'>
+  <meta content='#ffffff' name='theme-color'>
+
+
+  <title><%= title %></title>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+</head>
+
+<body>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  <header>
+    <%- include('../public/navBar.html', { title: title, username: user.userName}) %>  
+    
+    <section id="intro">
+      <div class="jumbotron">
+        <div class="container-fluid p-5" style="background:transparent; position: relative;">
+          <div class='row'>
+            <div class="col-md-12">
+              <div class="s-rich-text-wrapper" style="display: block;">
+                <h1 style="text-align: right; font-size: 48px; color:#FFFFFF;">
+                  <strong>October 2024</strong>
+                </h1>
+                <h1 style="text-align: right; font-size: 48px; color:#FFFFFF;">
+                  <strong>Special Offer 50% off</strong>
+                </h1>
+
+                <p><span style="display: inline-block">&nbsp;</span></p>
+
+                <h4 class="s-font-title" style="text-align: right; color:#FFFFFF;">
+                  Familiarize yourself with our course </br>
+                  and workshop offering by signing up for a</br>
+                  complimentary drop-in class now</h4>
+
+                <p><span style="display: inline-block">&nbsp;</span></p>
+
+                <div style="text-align: right; color:#FFFFFF;">
+                  <a href="./classes/classCategories/5"><button class="btn" type="button">Book a Class</button></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- end row -->
+        </div><!-- end container -->
+
+      </div>
+    </section>
+
+    <section id="Classes">
+      <div class="container">
+        <div class="container-fluid">
+          <h2>
+            <div class="s-subtitle" style="display: block;">
+              <p><span style="display: inline-block">&nbsp;</span></p>
+              <p style="text-align: left;"><strong>Upcoming Classes&nbsp;</strong></p>
+            </div>
+          </h2>
+        </div>
+        <div class="container-fluid">
+          <h6>
+            <div>
+              <p class="s-subtitle" style="text-align: left;">
+                Besides our regular schedule, we also
+                frequently host visiting teachers and speakers.</p>
+              <p><span style="display: inline-block">&nbsp;</span></p>
+            </div>
+          </h6>
+        </div>
+      </div>
+    </section>
+
+    <section id="Latest">
+      <div class="container">
+        <div class="d-flex flex-wrap">
+          <div class="card p-2 flex-fill" style="width: 18rem; position:relative;">
+            <img src="./images/cakes_c.jpg" class="card-img img-fluid" alt="Cakes"
+              style="object-fit: cover; filter: brightness(60%);">
+            <div class="card-body text-center innertext"
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+              <h1 class="card-title" style="font-size: 72px;"><a
+                  href="./classes/classCategories/4"><strong>Bakery</strong>
+              </h1></a>
+            </div>
+          </div>
+
+          <div class="card p-2 flex-fill" style="width: 18rem; position:relative;">
+            <img src="./images/it_c.jpg" class="card-img img-fluid" alt="IT"
+              style="object-fit: cover; filter: brightness(60%);">
+            <div class="card-body text-center innertext"
+              style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+              <h1 class="card-title" style="font-size: 72px;"><a
+                  href="./classes/classCategories/1"><strong>IT</strong></h1></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="LearnMore">
+      <div style="background-color:#c9b9ad; height:fit-content; position: relative; z-index: 1;">
+        <div class="container">
+          <div class="d-flex flex-column bd-highlight justify-content-center">
+            <h2>
+              <div class="p-2 bd-highlight">
+                <p><span style="display: inline-block">&nbsp;</span></p>
+                <p style="text-align: center;">
+                  <span style="color: #ffffff;"><strong>Philosophy Around Yoga</strong></span>
+                </p>
+                <p><span style="display: inline-block">&nbsp;</span></p>
+              </div>
+            </h2>
+
+            <div class="p-2 bd-highlight">
+              <h5 class="col sqs-col-8 span-8 " style="text-align: center;">
+                <span style="color: #ffffff;">With an emphasis on breathing techniques and meditation</span>
+              </h5>
+              <h5 class="col sqs-col-8 span-8" style="text-align: center;">
+                <span style="color: #ffffff;">we promote thoughtful and reflexive yoga to promote both physical and
+                  mental well-being.</span>
+              </h5>
+              <h5 class="col sqs-col-8 span-8" style="text-align: center;">&nbsp;</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-2 bd-highlight justify-content-center"
+          style="background-repeat:no-repeat;background-size:cover;background-color:#FFFFFF;background-position:50% 82%;background-image:url(./images/index_yago.jpeg)">
+          <p><span style="display: inline-block; height: 100px;">&nbsp;</span></p>
+          <div class="flex-fill" style="text-align: center; width:auto;">
+            <a class="btn" href="./classes/classCategories/2" role="button" target="_self">Learn More</a>
+          </div>
+          <p><span style="display: inline-block; height: 100px;">&nbsp;</span></p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="Footer">
+      <footer class="bg-light text-left text-lg-start">
+        <div class="container p-4">
+          <div class="d-flex flex-row bd-highlight mb-3 justify-content-start mt-4">
+            <div class="p-2 bd-highlight">
+              <p><strong>ERB Hobby Workshop</strong></p>
+            </div>
+
+            <div class="p-2 bd-highlight">
+
+              <p>Email: cp@scope.edu</p>
+              <p>Phone: (852) 3442
+                7426,</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(852) 3442 7427
+              </p>
+              <p>Address: 九龍尖沙咀東科學館道16號華懋廣場UG3樓UG301室</p>
+            </div>
+
+          </div>
+          <div class="d-flex flex-row bd-highlight mb-3 justify-content-start mt-4 border-top">
+            <div class="p-2 bd-highlight text-left mt-5">
+              <p>✪ 2024 ERB Hobby Workshop. Proudly created by members below.</p>
+              <p>Your Name 1</p>
+              <p>Your Name 2</p>
+              <p>Your Name 3</p>
+              <p>Your Name 4</p>
+            </div>
+          </div>
+        </div>
+
+      </footer>
+    </section>
+
+</body>
+
+</html>
+
+<script>
+  // Get the button
+  let mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () { scrollFunction() };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>

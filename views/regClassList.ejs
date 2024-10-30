@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<title>得意社區興趣班補習中心</title>
+</head>
+<body autocomplete="off">
+<script>
+    // alert("請留意： 7天內開課之課程不可取消！！ 如有疑問，請聯絡本中心客戶服務處");
+</script>
+<h1>已登記報讀課程列表</h1>
+
+<p id="messageHere"><span style="color:#B22222;"><%= msg %></span></p>
+
+<form id="fList" method="post" name="fList">
+<table border="1" cellpadding="1" cellspacing="1" style="width: 800px;">
+	<tbody>
+		<tr>
+			<td style='text-align: center;'>課程號碼</td>
+			<td>課程名稱</td>
+			<td>開課日期</td>
+			<td style='text-align: center;'>課堂時數</td>
+			<td style='text-align: center;'>Credit</td>
+			<td>&nbsp;</td>
+		</tr>
+            <script>
+                function ckDate(classSchedule) {
+                    let cuDate = new Date();
+                    let nextWeek = new Date(cuDate.getTime() + 7 * 24 * 60 * 60 * 1000);
+                    let schDate = new Date(classSchedule);
+                  
+                    if (schDate > nextWeek) return true;
+                    else return false;
+                };
+
+                function formedDate(inputDate) {
+                    let iDate = new Date(inputDate);
+                    let cYear = iDate.getFullYear();
+                    let cMonth = ("0" + (iDate.getMonth() + 1)).slice(-2);
+                    let cDate = ("0" + iDate.getDate()).slice(-2);
+                    let cHour = ("0" + iDate.getHours()).slice(-2);
+                    let cMin = ("0" + iDate.getMinutes()).slice(-2);
+                    return (cYear + '年' + cMonth + '月' + cDate + '日; ' + cHour + ':' + cMin);                
+                };
+
+                function cancelRegClass(classID) {
+                    alert("Cancel Registration for classID: " + classID);
+                };
+
+                let html = "";
+                const rs = <%- JSON.stringify(regClass) %>; 
+
+                // preparing html code for display
+                rs.forEach((item, index) => {
+                    html += "<tr>";
+                    html += "<td style='text-align: center;'>" + rs[index].classID + "</td>";
+                    html += "<td>" + rs[index].className + "</td>";                    
+                    html += "<td>" + formedDate(rs[index].classSchedule) + "</td>";                   
+                    html += "<td style='text-align: center;'>" + rs[index].classDuration + "</td>";                    
+                    html += "<td style='text-align: center;'>" + rs[index].classCredit + "</td>";
+                    if (ckDate(rs[index].classSchedule)) {
+                        html += "<td style='text-align: center;'><input name='Submit' type='button' value=' 取消報讀 ' onclick='cancelRegClass(" + rs[index].classID + ")' /></td>";
+                        // html += "<td style='text-align: center;'><input name='Submit' type='button' value=' 取消報讀 ' /></td>";
+                    } else {
+                        html += "<td style='text-align: center;'><input name='Submit' type='button' value=' 取消報讀 ' disabled /></td>";
+                    }
+                    html += "</tr>";
+                });
+                
+                document.write(html);
+            </script>
+	</tbody>
+</table>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<title>User Logon</title>
+</head>
+<body autocomplete="off">
+<h1>User Logon</h1>
+
+<script>
+    async function userLogon() {
+        let userID = document.getElementById('userID').value.trim();
+        let userPassword = document.getElementById('userPassword').value.trim();
+        
+        // fetch form dat and post to back-end API
+        const params = {
+        	'userID': userID,
+        	'userPassword': userPassword 
+        };
+        const options = {
+            method: 'POST',
+            body: JSON.stringify( params ) ,
+            headers: { "Content-Type": "application/json" } 
+        };
+        fetch( '/users/logonUser', options )
+            .then( response => { window.location.href = "https://yahoo.com";
+								}).catch(function (err) {
+									console.info(err);
+		});
+	};
+
+    function goCancel() {
+        alert('You click cancel');        
+    };
+
+</script>
+
+<form id="fLogon" name="fLogon">
+<table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
+	<tbody>
+		<tr>
+			<td>User ID:</td>
+			<td><input maxlength="30" id="userID" size="30" type="text" /></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input maxlength="20" id="userPassword" size="30" type="password" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><input name="btnOK" type="button" value=" OK " onClick="userLogon()" />&nbsp;
+				<input name="btnCancel" type="button" value=" Cancel " onClick="goCancel()" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>** forget password</p>
+</form>
+</body>
+</html>

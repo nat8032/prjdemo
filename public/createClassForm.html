@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        <div class='container d-flex align-self-center justify-content-center' style='padding: 20px;'>
+            <h1>Create New Class</h1>
+        </div>
+        <div class="d-flex flex-wrap" style='padding: 20px;'>
+            <div class="card p-2 flex-fill" style="width: 18rem; position:relative; ">
+                <form action="/admin/createClass" method="post" enctype="multipart/form-data" onsubmit="return checkFormComplete()">
+                <!-- <form enctype="multipart/form-data"> -->
+                    <div class="d-flex flex-wrap">
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Class Name: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <input type="text" placeholder="e.g. 電腦簡易操作" id="className" name="className" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Class Details: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <input type="text" placeholder="e.g. 基本電腦操作" id="classDetails" name="classDetails" />
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap">
+                            <!-- <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Class ID: </p>
+                            </div>
+                            <div style='padding: 5px;'> -->
+                            <select name="classID" id="classID" class="form-select form-select-lg mb-3"
+                                aria-label=".form-select-lg example" hidden>
+                            </select>
+                            <!-- </div> -->
+                        </div>
+
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Class Type: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <select name="classType" id="classType" class="form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Tutor: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <select name="uID" id="tuturID" class="form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Location: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <select name="locationID" id="locationID" class="form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Max Seat: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <select name="maxSeat" id="maxSeat" class="form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Class Duration: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <select name="classDuration" id="classDuration" class="form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Class Schedule: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <!-- <input type="datetime-local" id="classSchedule" name="classSchedule" min=getNextMth()> -->
+                                <script>
+                                    // get next month calendar in "YYYY-MM" format
+                                    function getNextMth() {
+                                        var now = new Date();
+                                        var nextMth = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + 8, now.getMinutes());
+                                        return nextMth.toISOString().slice(0, 16);
+                                    }
+                                    const html = "<input type='datetime-local' id='classSchedule' name='classSchedule' min='" + getNextMth() + "'/>"
+                                    document.write(html);
+                                </script>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Class Credit: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <select name="classCredit" id="classCredit" class="form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>State: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <select name="stateID" id="stateID" class="form-select form-select-lg mb-3"
+                                    aria-label=".form-select-lg example">
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- upload image -->
+                        <div class="d-flex flex-wrap" style='padding: 20px;'>
+                            <div style='padding: 5px;'>
+                                <p>Upload Image: </p>
+                            </div>
+                            <div style='padding: 5px;'>
+                                <!-- <form action="/admin/uploadImage" method="post" enctype="multipart/form-data"> -->
+                                <input type="file" name="classImg" /><br />
+                                <!-- </form>                             -->
+                                <div id="message"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style='padding: 20px;'>
+                        <!-- <button type='button' class="btn btn-primary" onclick='createNewClass()'>submit</button> -->
+                        <button type='submit' class="btn btn-primary">submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="/javascripts/createClassOnload.js"></script>

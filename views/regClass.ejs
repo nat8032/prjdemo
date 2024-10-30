@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>得意社區興趣班補習中心</title>
+</head>
+<body autocomplete="off">
+<h2>確認報讀課程</h2>
+
+<p id="messageHere"><span style="color:#B22222;"><%= msg %></span></p>
+
+<form id="fConfirm" name="fConfirm">
+<table border="1" cellpadding="1" cellspacing="1" style="width:650px;">
+	<tbody>
+		<tr>
+			<td><span style="text-align: center;">課程號碼</span></td>
+			<td><%= classID %></td>
+		</tr>
+
+		<script>
+			function formedDate(inputDate) {
+				let iDate = new Date(inputDate);
+				let cYear = iDate.getFullYear();
+				let cMonth = ("0" + (iDate.getMonth() + 1)).slice(-2);
+				let cDate = ("0" + iDate.getDate()).slice(-2);
+				let cHour = ("0" + iDate.getHours()).slice(-2);
+				let cMin = ("0" + iDate.getMinutes()).slice(-2);
+				return (cYear + '年' + cMonth + '月' + cDate + '日; ' + cHour + ':' + cMin);                
+			};
+
+			function confirmRegClass(classID) {
+				alert("Confirm registration with classID: " + classID);
+			};
+
+			function cancelAction() {
+				alert("You click cancel button");
+			};
+
+			const rs = <%- JSON.stringify(regClass) %>;
+
+			// preparing html code for display 
+			let html = "";
+			html += "<tr><td>課程名稱</td><td>" + rs[0].className + "</td></tr>";
+			html += "<tr><td>開課日期</td><td>" + formedDate(rs[0].classSchedule) + "</td></tr>";
+			html += "<tr><td><span style='text-align: center;'>課堂時數</span></td><td>" + rs[0].classDuration + "</td></tr>";
+			html += "<tr><td>導師名稱</td><td>" + rs[0].tutorName + "</td></tr>";
+			html += "<tr><td>所需 Credit</td><td>" + rs[0].classCredit + "</td></tr>";
+			html += "<tr><td>&nbsp;</td>";
+			html += "<td><input name='bConfirm' type='button' value='確認報讀' onclick='confirmRegClass(<%= classID %>)'" 
+			if (<%= validRegClass %>) html += " />&nbsp;";
+			else html += " disabled/>&nbsp;";
+			html += "<input name='cCancel' type='button' value='取消' onclick='cancelAction()' /></td></tr>";
+			
+			document.write(html);
+		</script>
+
+
+
+	</tbody>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<title>Register User Account</title>
+</head>
+<body autocomplete="off">
+<h1>Register User Account</h1>
+
+<p id="messageHere"><span style="color:#B22222;"><%= msg %></span></p>
+
+<script>
+    async function ckInput() {
+        let userName = document.getElementById('userName').value.trim();
+        let userPhone = Number(document.getElementById('userPhone').value.trim());
+        let userPassword = document.getElementById('userPassword').value.trim();
+        
+        // validate input data (basic)
+        if (userName && userPhone && userPassword) {
+            if (userName.length < 3) alert('Please input valid user name');     // set user full name at least 3 char. length
+            else if (isNaN(userPhone) || userPhone < 21000000 || userPhone > 98999999) alert('Please input valid mobile phone number');     // with refernce tp OFCA HK numbering plan
+            else if (userPassword.length < 8) alert('Please input at least 8 characters length password');      // set password at least 8 char. length
+            else {
+                // fetch form dat and post to back-end API
+                const params = {
+                    'userName': userName,
+                    'userPhone': userPhone,
+                    'userPassword': userPassword 
+                };
+                const options = {
+                    method: 'POST',
+                    body: JSON.stringify( params ) ,
+                    headers: { "Content-Type": "application/json" } 
+                };
+                fetch( '/users/regUser', options )
+                    .then( response => response.json() );
+            };
+        } else alert('Please input request data before submit');
+    };
+    
+    function goCancel() {
+        alert('You click cancel');        
+    };
+
+</script>
+
+<form name="fRegUser">
+<table border="1" cellpadding="1" cellspacing="1" style="width: 800px;">
+	<tbody>
+		<tr>
+			<td>Full Name</td>
+			<td><input type="text" id="userName" name="userName" size="50" maxlength="50" required /></td>
+		</tr>
+		<tr>
+			<td>Phone Number</td>
+			<td>
+                <input type="tel" id="userPhone" name="userPhone" size="20" maxlength="8" required />
+            </td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>  
+                <input type="password" id="userPassword" name="userPassword" size="20" maxlength="12" required />
+            </td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+                <input name="btnConfirm" type="button" value="Confirm" onClick="ckInput()" />&nbsp;
+                <input name="btnCancel" type="button" value="Cancel" onClick="goCancel()" />
+            </td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+</form>
+
+<p>&nbsp;</p>
+</body>
+</html>

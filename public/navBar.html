@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid align-middle">
+
+    <a class="navbar-brand"><img src="../../images/ERB_workshop_Logo.png" alt="logo" width="100" height=auto;></a>
+    <span style="font-size: 26px; color: #FFFFFF; margin-right: 20px;">
+      <%= title %>
+    </span>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse bd-highlight" id="navbarSupportedContent">
+      <div class="p-2">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 18px; color: #f0f0f0;" href="/">頁首</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: 18px; color: #f0f0f0;" href="/classes">興趣班</a>
+          </li>
+          <% if (user.uLevel == 1) { %>
+            <li class="nav-item">
+            <a class="nav-link" style="font-size: 18px; color: #f0f0f0;" href="/admin">網站管理</a>
+            </li>
+          <% } %>
+          <% if (user.uLevel == 3) { %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="font-size: 18px; color: #f0f0f0;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              用戶中心
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/classes/getRegClass">報名興趣班紀錄</a></li>
+              <li><a class="dropdown-item" href="/users/changePWD">更改密碼</a></li>
+            </ul>
+          </li>
+          <% } %> 
+        </ul>
+        </div>
+      <div class="ml-auto p-2">
+        
+          <p class="text-white ">
+            <% if (user.uName.length > 0) { %>
+               &nbsp;<%= user.uName %>&nbsp;
+               <a href="/users/logout"><button class="btn" type="button">登出</button></a>
+            <% } else { %>
+               <a href="/users/login"><button class="btn" type="button">登入</button></a>
+            <% } %>
+          </p>
+        
+      </div>
+    </div>
+  </div>
+</nav>

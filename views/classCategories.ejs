@@ -1,0 +1,80 @@
+<script>
+  const category ='<%= category %>';
+  //console.log(category);
+</script>
+
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  
+  <link rel="stylesheet" href="../../stylesheets/style.css">
+  <meta content='#ffffff' name='theme-color'>
+
+
+  <title>課程分類</title>
+</head>
+
+<body>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  <header>
+    <%- include('../public/navBar.html', { title: title, username: user.userName}) %>
+      <!-- banner start-->
+      <section id="banner">
+        <div class="container-fluid bg-dark text-white p-5" style="width:100%; height: 100px;">
+          <p class="h1">課程分類</p>
+        </div>
+      </section>
+      <!-- banner end-->
+
+
+      <div class="container d-flex justify-content-center" style="display: flex;">
+        <form>
+          <div style="margin-top: 20px;"></div>
+          <div id="message" style="color:red"></div>
+
+          <div class='container d-flex justify-content-center'>
+            <div class="d-flex justify-content-center">
+              <div class="d-flex flex-column justify-content-center" style="border-radius: 25px margin 20px;">
+
+                <div class="card text-black shadow my-5 bg-light rounded d-flex p-2 align-items-center"
+                  style='padding: 20px;'>
+                  <p>
+                  <h5> 課程類型 :
+                    <select name="classType" id="classType" class="form-select form-select-lg mb-3"
+                      aria-label=".form-select-lg example"></select>
+                    &nbsp;
+                    <button type='button' class="btn btn-primary" onclick='filterCoursesByCategory()'>搜尋</button>
+                  </h5>
+                  <br /><br />
+                  </p>
+                </div>
+
+                <div class="d-flex p-2 justify-content-center mx-auto"
+                  style='padding: 20px; margin: auto; width: 100%;'>
+                  <div id="courseList">
+
+                    <!-- 這裡會顯示各類別的課程資訊 -->
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+      </div>
+
+</body>
+
+</html>
+
+<script src="/javascripts/classCategories.js"></script>

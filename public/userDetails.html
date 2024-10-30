@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body autocomplete="off">
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id');
+    </script>
+    <div>
+        <div class='container d-flex align-self-center justify-content-center' style='padding: 20px;'>
+            <h1>User Details Page</h1>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+    <div class='container'>
+        <div style='padding: 20px;'>
+            <p>Please enter the Credit add or reduce(-) in the below blank</p>
+            <form>
+                <input type="text" placeholder="+/- User Credit" id="Credit" name="Credit" />
+                <div id="updateCredit"></div>
+            </form>
+        </div>
+        <div id="message"></div>
+    </div>
+    <div id="userClass"></div>
+
+</body>
+
+</html>
+
+<script src="/javascripts/userOnload.js"></script>
+<script src="/javascripts/deleteClassUser.js"></script>
